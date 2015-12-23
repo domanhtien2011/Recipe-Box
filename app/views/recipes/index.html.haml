@@ -1,0 +1,4 @@
+%h1 Welcome to my recipes. You will find all the amazing recipes here... That is guaranteed!!!
+- @recipes.each do |recipe|
+  %h2= link_to(recipe.title, recipe)
+

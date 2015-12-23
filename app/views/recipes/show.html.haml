@@ -1,0 +1,6 @@
+%h1= @recipe.title
+%p= @recipe.description
+= link_to("Edit", edit_recipe_url(@recipe), class: "btn btn-default")
+= link_to("Delete", recipe_url(@recipe), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default")
+
+= link_to("Home", root_url, class: "btn btn-default")
