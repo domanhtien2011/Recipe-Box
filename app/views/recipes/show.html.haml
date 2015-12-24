@@ -6,6 +6,9 @@
       #recipe_info
         %h1= @recipe.title
         %p.description= @recipe.description
+        %p
+          Submitted by
+          = @recipe.user.email
   .row
     .col-md-6
       #ingredients
@@ -21,12 +24,12 @@
           - @recipe.directions.each do |direction|
             %li= direction.step
 
-  .row
-    .col-md-12
-      = link_to("Edit", edit_recipe_url(@recipe), class: "btn btn-default")
-      = link_to("Delete", recipe_url(@recipe), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default")
+  - if user_signed_in?
+    .row
+      .col-md-12
+        = link_to("Edit", edit_recipe_url(@recipe), class: "btn btn-default")
+        = link_to("Delete", recipe_url(@recipe), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default")
 
-      = link_to("Home", root_url, class: "btn btn-default")
 
 
 

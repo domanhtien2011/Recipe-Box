@@ -27,14 +27,12 @@ body {
     background: linear-gradient(to left, #1D2B64, #F8CDDA);
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding-top: 60px;
 }
 
 .navbar-inverse {
     border-radius: 0;
-}
-
-a.navbar-brand {
-    color: white;
 }
 
 @mixin box-shadow {

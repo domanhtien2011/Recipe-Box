@@ -5,7 +5,7 @@
         = @recipe.errors.count
         Prevent this recipe from saving.
       %ul
-        - @recipes.erros.full_messages.each do |msg|
+        - @recipe.errors.full_messages.each do |msg|
           %li= msg
   .panel-body
     = f.input :title, input_html: { class: 'form-control' }

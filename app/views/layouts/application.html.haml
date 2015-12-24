@@ -6,13 +6,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse
+    %nav.navbar.navbar-fixed-top.navbar-inverse
       .container
         .navbar-header
           = link_to("Recipe Box", root_url, class: "navbar-brand")
-        %ul.nav.navbar-nav.navbar-right
-          %li= link_to("New Recipe", new_recipe_url)
-          %li= link_to("Sign Out", root_url)
+        - if user_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to("New Recipe", new_recipe_url)
+            %li= link_to("Sign Out", destroy_user_session_url, method: :delete)
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to("Sign In", new_user_session_url)
+            %li= link_to("Sign Up", new_user_registration_url)
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
